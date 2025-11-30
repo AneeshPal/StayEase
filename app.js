@@ -102,7 +102,6 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
 }));
 
 
-
 // app.get("/testlisting",async(req,res)=>{
 //   let sampleListing=new Listing({
 //     title:"My new villa",
@@ -125,7 +124,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
   //res.status(statusCode).send(message);
 });
-
 
 
 app.listen(8080, () => {
