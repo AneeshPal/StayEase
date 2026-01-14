@@ -9,6 +9,8 @@ const wrapAsync = require("./utils/wrapAsync");
 const ExpressError = require("./utils/ExpressError.js");
 const listings=require("./routes/listing.js");
 const reviews=require("./routes/review.js");
+const session=require("express-session");
+
 
 
 //Database connection
@@ -35,6 +37,12 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 
 
+const sessionOptions={
+  secret:"mysupersecretcode",
+  resave:false,
+  saveUninitialized:true
+}
+app.use(session(sessionOptions));
 
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
