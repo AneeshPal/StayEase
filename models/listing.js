@@ -8,10 +8,9 @@ const listingSchema = new Schema({
         required: true,
     },
     description: String,
-    image: {
-        default:"https ://unsplash.com/photos/a-staircase-leading-up-to-the-ocean-with-a-potted-plant-on-top-of-it-h-EvL41BRS4",
-        type: String,
-        set: (v) => v === "" ? "https ://unsplash.com/photos/a-staircase-leading-up-to-the-ocean-with-a-potted-plant-on-top-of-it-h-EvL41BRS4" :v,
+    image: {    
+        url: String,
+        filename:String,
    },
     price: Number,
     location: String,
@@ -25,7 +24,18 @@ const listingSchema = new Schema({
     owner:{
            type:Schema.Types.ObjectId,
           ref:"User",
-    }
+    },
+    geometry:{
+        type:{
+            type:String,  // Don't do '{location:{type:String}}'
+            enum:["Point"], // 'location.type' must be "Point"
+            required:true,
+        },
+        coordinates:{
+            type:[Number],
+            required:true,
+        },
+    },
 });
 
 //Deleting Middleware
