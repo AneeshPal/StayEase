@@ -27,7 +27,9 @@ const User=require("./models/user.js")
 
 
 //Database connection
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+
+z
 
 main().then(() => {
   console.log("connected to db");
